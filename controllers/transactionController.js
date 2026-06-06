@@ -93,8 +93,7 @@ const getMyActiveTransactions = async (req, res) => {
   }
 };
 
-// @route GET /api/transactions/history
-// @desc  Full transaction history for the logged-in employee
+
 const getMyHistory = async (req, res) => {
   try {
     const transactions = await Transaction.find({ userId: req.user._id })
@@ -107,8 +106,7 @@ const getMyHistory = async (req, res) => {
   }
 };
 
-// @route GET /api/transactions/admin/all  (admin only)
-// @desc  Full transaction log across all users with populated refs
+
 const getAllTransactions = async (req, res) => {
   try {
     const { page = 1, limit = 30 } = req.query;

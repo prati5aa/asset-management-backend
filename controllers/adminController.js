@@ -1,7 +1,7 @@
 const Asset = require('../models/asset');
 const Transaction = require('../models/transaction');
 
-// @route GET /api/admin/metrics
+
 const getMetrics = async (req, res) => {
   try {
     const [total, checkedOut] = await Promise.all([
@@ -20,7 +20,6 @@ const getMetrics = async (req, res) => {
   }
 };
 
-// @route POST /api/admin/assets
 const createAsset = async (req, res) => {
   try {
     const { item_name, image, category, serial_number, manufacturer, department } = req.body;
@@ -114,7 +113,7 @@ const deleteAsset = async (req, res) => {
     if (!asset)
       return res.status(404).json({ message: 'Asset not found' });
 
-    // Block deletion if the asset is currently checked out
+    
     if (asset.status === 'checked_out')
       return res.status(400).json({
         message: 'Cannot delete an asset that is currently checked out. Wait for it to be returned first.',

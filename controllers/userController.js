@@ -58,6 +58,7 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
+ 
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -78,7 +79,6 @@ const loginUser = async (req, res) => {
       password,
       user.password
     );
-
     if (!isMatch) {
       return res.status(401).json({
         message: 'Invalid email or password',
