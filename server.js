@@ -15,7 +15,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'https://asset-management-frontend-umber.vercel.app/',
+  origin: process.env.CLIENT_URL || 'https://asset-management-frontend-umber.vercel.app',
   credentials: true,
 }));
 
